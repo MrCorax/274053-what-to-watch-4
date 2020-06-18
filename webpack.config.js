@@ -1,5 +1,6 @@
 const path = require(`path`);
 const way = path.join(__dirname, `public`);
+const webpack = require(`webpack`);
 
 module.exports = {
   entry: `./src/index.js`,  // точка входа
@@ -28,6 +29,15 @@ module.exports = {
   resolve: {
     alias: {
       '@components': path.resolve(__dirname, `./src/components`),
-    }
-  }
+    },
+    modules: ['node_modules', path.resolve(path.join(__dirname, `./src`))],
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.webm'],
+  },
+
+  plugins: [
+    new webpack.ProvidePlugin ({
+      React: `react`,
+      PropTypes: `prop-types`
+    })
+  ]
 };
