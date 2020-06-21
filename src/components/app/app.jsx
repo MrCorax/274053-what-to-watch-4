@@ -1,5 +1,7 @@
 import Main from "../main/main";
 
+const promoTitleButtonHandler = () => {};
+
 const App = (props) => {
 
   const {filmTitlePromo, filmGenre, filmYear, filmTitles} = props;
@@ -10,6 +12,7 @@ const App = (props) => {
       genre={filmGenre}
       year={filmYear}
       filmTitles={filmTitles}
+      onPromoTitleButtonClick={promoTitleButtonHandler}
     />
   );
 };

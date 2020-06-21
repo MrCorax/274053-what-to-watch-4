@@ -1,6 +1,6 @@
 const Main = (props) => {
 
-  const {titlePromo, genre, year, filmTitles} = props;
+  const {titlePromo, genre, year, filmTitles, onPromoTitleButtonClick} = props;
 
   return (
     <>
@@ -34,7 +34,9 @@ const Main = (props) => {
             </div>
 
             <div className="movie-card__desc">
-              <h2 className="movie-card__title">{titlePromo}</h2>
+              <h2
+                className="movie-card__title">{titlePromo}
+              </h2>
               <p className="movie-card__meta">
                 <span className="movie-card__genre">{genre}</span>
                 <span className="movie-card__year">{year}</span>
@@ -102,7 +104,7 @@ const Main = (props) => {
                 <div className="small-movie-card__image">
                   <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175" />
                 </div>
-                <h3 className="small-movie-card__title">
+                <h3 onClick={onPromoTitleButtonClick} className="small-movie-card__title">
                   <a className="small-movie-card__link" href="movie-page.html">{filmTitle}</a>
                 </h3>
               </article>
@@ -133,12 +135,12 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  // Массив строк
   filmTitles: PropTypes.arrayOf(PropTypes.string.isRequired),
 
   titlePromo: PropTypes.string.isRequired,
   genre: PropTypes.string.isRequired,
-  year: PropTypes.number.isRequired
+  year: PropTypes.number.isRequired,
+  onPromoTitleButtonClick: PropTypes.func.isRequired
 };
 
 export default Main;
