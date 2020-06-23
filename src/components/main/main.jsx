@@ -1,6 +1,6 @@
 const Main = (props) => {
 
-  const {titlePromo, genre, year, filmTitles} = props;
+  const {titlePromo, genre, year, filmTitles, onPromoTitleButtonClick} = props;
 
   return (
     <>
@@ -98,11 +98,11 @@ const Main = (props) => {
 
           <div className="catalog__movies-list">
             {filmTitles.map((filmTitle) => (
-              <article key={filmTitle instanceof String} className="small-movie-card catalog__movies-card">
+              <article key={filmTitle.toString()} value={filmTitle} className="small-movie-card catalog__movies-card">
                 <div className="small-movie-card__image">
                   <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175" />
                 </div>
-                <h3 className="small-movie-card__title">
+                <h3 onClick={onPromoTitleButtonClick} className="small-movie-card__title">
                   <a className="small-movie-card__link" href="movie-page.html">{filmTitle}</a>
                 </h3>
               </article>
@@ -133,12 +133,13 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  // Массив строк
+
   filmTitles: PropTypes.arrayOf(PropTypes.string.isRequired),
 
   titlePromo: PropTypes.string.isRequired,
   genre: PropTypes.string.isRequired,
-  year: PropTypes.number.isRequired
+  year: PropTypes.number.isRequired,
+  onPromoTitleButtonClick: PropTypes.func.isRequired
 };
 
 export default Main;
