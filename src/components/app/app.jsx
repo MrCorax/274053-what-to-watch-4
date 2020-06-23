@@ -15,7 +15,7 @@ const App = (props) => {
 };
 
 App.propTypes = {
-  // Массив строк
+
   filmTitles: PropTypes.arrayOf(PropTypes.string.isRequired),
 
   filmTitlePromo: PropTypes.string.isRequired,

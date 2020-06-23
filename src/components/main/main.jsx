@@ -98,7 +98,7 @@ const Main = (props) => {
 
           <div className="catalog__movies-list">
             {filmTitles.map((filmTitle) => (
-              <article key={filmTitle instanceof String} className="small-movie-card catalog__movies-card">
+              <article key={filmTitle.toString()} value={filmTitle} className="small-movie-card catalog__movies-card">
                 <div className="small-movie-card__image">
                   <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175" />
                 </div>
@@ -133,7 +133,7 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  // Массив строк
+
   filmTitles: PropTypes.arrayOf(PropTypes.string.isRequired),
 
   titlePromo: PropTypes.string.isRequired,
