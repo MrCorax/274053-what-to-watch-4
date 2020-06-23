@@ -13,6 +13,7 @@ it(`Should Main render correctly`, () => {
         genre={`Drama`}
         year={2014}
         filmTitles={filmTitles}
+        onPromoTitleButtonClick={() => {}}
       />
   ).toJSON();
   expect(tree).toMatchSnapshot();
